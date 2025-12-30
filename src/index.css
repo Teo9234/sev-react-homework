@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+    body {
+        @apply bg-gray-100 text-gray-900;
+        --colour-cf-cielo: #00aaff;
+        --colour-cf-violet: #8a2be2;
+        --colour-cf-cyan: #00aaff;
+    }
+}
