@@ -3,3 +3,8 @@ export type ButtonProps = {
     onClickProp?: () => void;
     disabled?: boolean;
 }
+
+export type SizeProps = {
+    width: number;
+    height: number
+};
