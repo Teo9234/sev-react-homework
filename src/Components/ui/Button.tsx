@@ -1,15 +1,21 @@
-const Button = () => {
+import type {ButtonProps} from "../../types.ts";
+
+const Button = ({onClickProp, disabled= false, label}: ButtonProps) => {
 
     return (
-        <div align="center" className="mt-8">
-            <button
-                className="px-4 py-2 align-middle bg-purple-400 text-white hover:bg-purple-600 hover:cursor-pointer">
-                Click me when ready!
-                {/*onClick={onclick()}*/}
-                {/*disabled={disabled}*/}
+        <>
+            <div className="flex flex-col items-center text-center">
+                <button
+                    className={"px-4 py-2 align-middle bg-purple-400 text-white hover:bg-purple-600 hover:cursor-pointer"}
+                    onClick={onClickProp}
+                    disabled={disabled}
+                >
 
-            </button>
-        </div>
+                    {/*Label changes if it is enabled*/}
+                    {label}
+                </button>
+            </div>
+        </>
     )
 
 }
