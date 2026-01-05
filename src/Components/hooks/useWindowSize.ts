@@ -5,8 +5,8 @@ const useWindowSize = (): SizeProps => {
     const isClient = typeof window !== 'undefined';
 
     const getSize = (): SizeProps => ({
-        width: isClient ? window.innerWidth : 0,
-        height: isClient ? window.innerHeight : 0,
+        width: isClient ? window.outerWidth : 0,
+        height: isClient ? window.outerHeight : 0,
     });
 
     const [size, setSize] = useState<SizeProps>(getSize);
@@ -21,7 +21,9 @@ const useWindowSize = (): SizeProps => {
         return () => window.removeEventListener('resize', onResize);
     }, []);
 
-    return size;
+    const isSquare = size.width === size.height;
+
+    return { ...size, isSquare };
 }
 
 export default useWindowSize;
