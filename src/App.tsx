@@ -20,7 +20,6 @@ function App() {
     useEffect(() => {
         setIsPerfectAnswer(perfectAnswers.includes(answerInput.toLowerCase()));
     }, [answerInput]);
-    console.log(isPerfectAnswer);
 
 
     return (
