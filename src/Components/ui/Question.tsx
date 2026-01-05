@@ -1,8 +1,7 @@
-import {useState} from "react";
+import type {QuestionProps} from "../../types.ts";
 
-const Question = () => {
+const Question = ({handleAnswer, answerInput}: QuestionProps) => {
 
-    const [answer, setAnswer] = useState<string>("");
 
     return  (
         <div className="flex flex-col items-center text-center">
@@ -12,12 +11,12 @@ const Question = () => {
                     className="border-3 bg-green-300 px-3 py-2"
                     type="text"
                     placeholder="Don't be negative"
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)}
+                    value={answerInput}
+                    onChange={(e) => handleAnswer(e.target.value)}
                     // TODO: prevent default form submission on submit
                 />
             </form>
-            <p className="mt-4">Your answer: {answer}</p>
+            <p className="mt-4">Your answer: {answerInput}</p>
         </div>
     )
 }
