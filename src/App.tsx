@@ -9,18 +9,18 @@ const perfectAnswers = ["0", "10", "square", "circle", "zero", "ten"];
 function App() {
 
     const [answerInput, setAnswer] = useState<string>("");
+    const [isPerfectAnswer, setIsPerfectAnswer] = useState(false);
 
-    const [isPerfect, setIsPerfect] = useState(false);
-
+    // function to handle answer input from Question component
     const handleAnswer = (value:string) => {
         setAnswer(value);
     }
 
-    console.log(isPerfect);
-
+    // check if the answerInput is in the perfectAnswers array
     useEffect(() => {
-        setIsPerfect(perfectAnswers.includes(answerInput.toLowerCase()));
+        setIsPerfectAnswer(perfectAnswers.includes(answerInput.toLowerCase()));
     }, [answerInput]);
+    console.log(isPerfectAnswer);
 
 
     return (
@@ -30,7 +30,11 @@ function App() {
                     <Question handleAnswer={handleAnswer} answerInput={answerInput}/>
                     <br/>
                     <SizeCounter />
-                    <Button label={"Not ready"} isPerfect={isPerfect}/>
+                    <Button
+                        isPerfectAnswer={isPerfectAnswer}
+                        onClickProp={() => alert("You solved the riddles!")}
+                        label={"Not ready yet"}
+                    />
                 </div>
             </Layout>
         </>
