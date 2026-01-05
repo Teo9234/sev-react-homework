@@ -1,4 +1,3 @@
-//get the name of the favicon file in the public folder
 const changedIcon = () => {
     // get all link elements
     const linkElements = document.getElementsByTagName("link");

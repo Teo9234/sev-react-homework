@@ -7,10 +7,6 @@ const Button = ({onClickProp, label, isPerfectAnswer}: ButtonProps) => {
     const {isSquare} = useWindowSize();
     const {isPlusFavicon} = changedIcon();
 
-    console.log(isPlusFavicon, label, isPlusFavicon);
-
-
-
     return (
         <>
             <div className="flex flex-col items-center text-center">
